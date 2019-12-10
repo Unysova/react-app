@@ -1,11 +1,46 @@
 {
-    "posts": [
+    "users": [
+        {
+            "name": "Администратор",
+            "job": "admin",
+            "department": "developers",
+            "email": "admin@corp.com",
+            "roles": "admin"
+        },
       {
-        "id": 1,
-        "title": "fake server test"
+        "name": "Иван Петров",
+        "job": "Главный менеджер",
+        "department": "managers",
+        "email": "ip@corp.com",
+        "roles": "user"
+      },
+      {
+        "name": "Петр Иванов",
+        "job": "Полуглавный менеджер",
+        "department": "managers",
+        "email": "pi@corp.com",
+        "roles": "user"
+      },
+      {
+        "name": "Иван Кукушкин",
+        "job": "Frontend разработчик",
+        "department": "developers",
+        "email": "ik@corp.com",
+        "roles": "user"
+      },
+      {
+        "name": "Игорь Лукошкин",
+        "job": "Backend разработчик",
+        "department": "developers",
+        "email": "il@corp.com",
+        "roles": "user"
       }
     ],
-    "profile": {
-      "name": "it works"
+    "login": {
+        "il@corp.com": "123",
+        "ik@corp.com": "345",
+        "admin@corp.com": "admin",
+        "ip@corp.com": "123",
+        "pi@corp.com": "123"
     }
   }
