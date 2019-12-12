@@ -3,35 +3,35 @@
         {
             "name": "Администратор",
             "job": "admin",
-            "department": "developers",
+            "department": "разработчики",
             "email": "admin@corp.com",
             "roles": "admin"
         },
       {
         "name": "Иван Петров",
         "job": "Главный менеджер",
-        "department": "managers",
+        "department": "менеджеры",
         "email": "ip@corp.com",
         "roles": "user"
       },
       {
         "name": "Петр Иванов",
         "job": "Полуглавный менеджер",
-        "department": "managers",
+        "department": "менеджеры",
         "email": "pi@corp.com",
         "roles": "user"
       },
       {
         "name": "Иван Кукушкин",
         "job": "Frontend разработчик",
-        "department": "developers",
+        "department": "разработчики",
         "email": "ik@corp.com",
         "roles": "user"
       },
       {
         "name": "Игорь Лукошкин",
         "job": "Backend разработчик",
-        "department": "developers",
+        "department": "разработчики",
         "email": "il@corp.com",
         "roles": "user"
       }
