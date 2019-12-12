@@ -10,7 +10,7 @@ import './App.css';
 
 import AuthForm from './components/AuthForm/'
 import UserCard from './components/UserCard';
-import UsersPage from './pages/Users';
+import UsersPage from './pages/users.js';
 
 const App = props => {
   const { alreadyLogin, showLoader, getUsers, getMe, roles, me } = props;

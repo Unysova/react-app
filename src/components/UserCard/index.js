@@ -9,8 +9,8 @@ const UserCard = props => {
       <div className='photo'>
         <img src={photo}/>
       </div>
-      <h1>{name}</h1>
-      <h2>Должность: {job}</h2>
+      <h2>{name}</h2>
+      <p>Должность: {job}</p>
       {email && 
         <a href={`mailto:${email}`}>{email}</a>
       }
