@@ -1,8 +1,10 @@
-import { AUTH_SUCCESS, LOGOUT } from '../constants'
+import { AUTH_SUCCESS, LOGOUT, SET_USER } from '../constants'
 
 const initialState = {
   alreadyLogin: false,
-  userInfo: null
+  login: null,
+  userInfo: null,
+  roles: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -10,8 +12,8 @@ const authReducer = (state = initialState, action) => {
     case AUTH_SUCCESS: {
       return {
         ...state, 
-        alreadyLogin: action.payload.alreadyLogin,
-        userInfo: action.payload.userInfo
+        alreadyLogin: true,
+        login: action.payload.login    
       }
     };
 
@@ -20,6 +22,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
         alreadyLogin: false
       };      
+    }
+
+    case SET_USER: {
+      return {
+        ...state, 
+        userInfo: action.payload.userInfo,
+        roles: action.payload.roles
+      }
     }
 
     default: 

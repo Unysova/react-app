@@ -12,7 +12,8 @@
         "job": "Главный менеджер",
         "department": "менеджеры",
         "email": "ip@corp.com",
-        "roles": "user"
+        "roles": "user",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Homo_habilis-2.JPG/275px-Homo_habilis-2.JPG"
       },
       {
         "name": "Петр Иванов",
