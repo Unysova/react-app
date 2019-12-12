@@ -1,10 +1,29 @@
-import { combineReducers } from 'redux';
-import authReducer from './authReducer'
+import { SHOW_LOADER, HIDE_LOADER } from '../constants'
 
-const mainReducer = combineReducers({
-  authReducer,
-  //usersReduser
-})
+const initialState = {
+  showLoader: false,
+  errors: null
+}
 
-export { mainReducer };
-  
+const mainReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SHOW_LOADER: {
+      return {
+        ...state, 
+        showLoader: true
+      }
+    };
+
+    case HIDE_LOADER: {
+      return {
+        ...state,
+        showLoader: false
+      };      
+    }
+
+    default: 
+      return state
+  }
+}
+
+export default mainReducer;

@@ -1,0 +1,12 @@
+footer {
+  padding: 20px;
+  box-sizing: border-box;
+  background: black;
+  color: #fff;
+}
+
+footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

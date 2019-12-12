@@ -1,38 +1,61 @@
-import React from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import UserCard from '../components/UserCard';
+import NewUser from '../components/NewUser';
 import 'antd/dist/antd.css';
 
 const UsersPage = props => {
+  const { usersList } = props;
+  const [departments, setDepartments] = useState(new Map());
 
-  //variables
-
-  const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
-  const loginError = isFieldTouched('login') && getFieldError('login');
-  const passwordError = isFieldTouched('password') && getFieldError('password');
-
-  //functions
-
-  const hasErrors = fieldsError => Object.keys(fieldsError).some(field => fieldsError[field]);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        //console.log('Received values of form: ', values);
-        alert('заявка отправлена'); 
+  useEffect(() => {
+    const newDepartments = new Map();
+    for( let user of usersList) {
+      let department = user.department;
+      if (!newDepartments.has(department)) {
+        newDepartments.set(department, [user]);
       } else {
-        alert('Оба поля должны быть заполнены');
+        let val = [...newDepartments.get(department), user];
+        newDepartments.set(department, [...val]);
       }
-    });
-  };
-  
+      setDepartments(new Map([...newDepartments]));
+    }
+  }, [usersList]);
 
+  const setByDepartments = (department) => {
+    const users = departments.get(department);
+    const usersList = users.map((user, index)=> {
+
+      return(<UserCard key={index} user={user}/>) 
+    });
+    return usersList
+  }
+
+  const departmensList = Array.from(departments.keys()).map((department, index)=> {
+    return (<React.Fragment key={index}>
+      <h1>{department}</h1>
+      <div className='users-list'>
+        {setByDepartments(department)}
+      </div>
+    </React.Fragment>)
+  })
+  
   return (
-    <div className="users-page">
+    <div className='users-page'>
+      <div className='wrapper'>
       <h1>Список сотрудников</h1>
+      {usersList ? departmensList : null}
+      <NewUser/>
+      </div>
     </div>
   );
 };
 
-export default UsersPage;
+function mapStateToProps(state) {
+  return {
+    usersList: state.usersReducer.usersList
+  }
+}
+
+export default connect(mapStateToProps)(UsersPage);
   
